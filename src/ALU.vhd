@@ -66,7 +66,7 @@ begin
             end if;
             
          when "001" =>
-            v_res_uns       :=  v_A_uns - unsigned('0' & (not i_B)) + 1;
+            v_res_uns       :=  v_A_uns + unsigned('0' & (not i_B)) + 1;
             v_result_8bit   := std_logic_vector(v_res_uns(7 downto 0));
             o_flags(1)      <= std_logic(v_res_uns(8));
             
