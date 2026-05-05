@@ -66,8 +66,8 @@ begin
             end if;
             
          when "001" =>
-            v_res_uns       :=  v_A_uns - v_B_uns;
-            v_result_8bit   := std_logic_vector(signed(i_A) - signed(i_B));
+            v_res_uns       :=  v_A_uns - unsigned('0' & (not i_B)) + 1;
+            v_result_8bit   := std_logic_vector(v_res_uns(7 downto 0));
             o_flags(1)      <= std_logic(v_res_uns(8));
             
             if (i_A(7) = '0' and i_B(7) = '1' and v_result_8bit(7) = '1') 
